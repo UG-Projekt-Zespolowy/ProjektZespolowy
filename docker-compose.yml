@@ -63,6 +63,10 @@ services:
       timeout: 30s
       retries: 5
       start_period: 60s
+    develop:
+      watch:
+        - action: rebuild
+          path: ./backend
 
   frontend:
     build:
@@ -79,6 +83,15 @@ services:
       timeout: 30s
       retries: 5
       start_period: 30s
+    develop:
+      watch:
+        - action: rebuild
+          path: ./frontend/package.json
+        - action: sync
+          path: ./frontend
+          target: /app/
+          ignore:
+            - node_modules/
 
 volumes:
   db_data:
