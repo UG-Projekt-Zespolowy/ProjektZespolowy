@@ -1,0 +1,9 @@
+[submodule "frontend"]
+	path = frontend
+	url = https://github.com/UG-Projekt-Zespolowy/frontend.git
+[submodule "keycloak"]
+	path = keycloak
+	url = https://github.com/UG-Projekt-Zespolowy/keycloak.git
+[submodule "backend"]
+	path = backend
+	url = https://github.com/UG-Projekt-Zespolowy/backend.git
