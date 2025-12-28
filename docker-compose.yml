@@ -77,6 +77,15 @@ services:
       - "3000:3000"
     depends_on:
       - backend
+      - keycloak
+    extra_hosts:
+      - "localhost:host-gateway"
+    environment:
+      - NEXTAUTH_URL=http://localhost:3000
+      - NEXTAUTH_SECRET=secret123
+      - KEYCLOAK_CLIENT_ID=frontend-client
+      - KEYCLOAK_CLIENT_SECRET=**********
+      - KEYCLOAK_ISSUER=http://localhost:8000/realms/project-realm
     healthcheck:
       test: ["CMD", "curl", "-f", "http://localhost:3000"]
       interval: 1m30s
